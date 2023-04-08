@@ -12,7 +12,28 @@ export const api = createApi({
         body: payload,
       }),
     }),
+    // code-davinci-002 not working -- depriciated?
+    postAiCode: build.mutation({
+      query: (payload) => ({
+        // url: "openai/code",
+        url: "openai/text",
+        method: "POST",
+        body: payload,
+      }),
+    }),
+    postAssistCode: build.mutation({
+      query: (payload) => ({
+        // url: "openai/code",
+        url: "openai/assist",
+        method: "POST",
+        body: payload,
+      }),
+    }),
   }),
 });
 
-export const { usePostAiTextMutation } = api;
+export const {
+  usePostAiTextMutation,
+  usePostAiCodeMutation,
+  usePostAssistCodeMutation,
+} = api;
